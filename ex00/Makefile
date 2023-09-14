@@ -1,4 +1,4 @@
-PROG := ex00
+PROG := claptrap
 
 COMPILER := c++
 FLAGS := -Wall -Wextra -Werror
