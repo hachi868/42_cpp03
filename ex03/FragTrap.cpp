@@ -4,29 +4,29 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
+	std::cout << "[FragTrap] Constructor called(Default)" << std::endl;
 	setHitPoints(100);
 	setEnergyPoints(100);
 	setAttackDamage(30);
-	std::cout << "FragTrap " << this->getName() << " is created. (default constructor)" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
+	std::cout << "[FragTrap] Constructor called" << std::endl;
 	setName(name);
 	setHitPoints(100);
 	setEnergyPoints(100);
 	setAttackDamage(30);
-	std::cout << "FragTrap " << this->getName() << " is created." << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "Bye, FragTrap " << this->getName() << "." << std::endl;
+	std::cout << "[FragTrap] Destructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &obj)
 {
-	std::cout << "FragTrap::Copy constructor called" << std::endl;
+	std::cout << "[FragTrap] Copy constructor called" << std::endl;
 	setName(obj.getName());
 	setHitPoints(obj.getHitPoints());
 	setEnergyPoints(obj.getEnergyPoints());
@@ -35,7 +35,7 @@ FragTrap::FragTrap(const FragTrap &obj)
 
 FragTrap &FragTrap::operator = (const FragTrap &obj)
 {
-	std::cout << "FragTrap::Copy assignment operator called" << std::endl;
+	std::cout << "[FragTrap] Copy assignment operator called" << std::endl;
 	setName(obj.getName());
 	setHitPoints(obj.getHitPoints());
 	setEnergyPoints(obj.getEnergyPoints());

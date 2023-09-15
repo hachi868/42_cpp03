@@ -1,34 +1,33 @@
 #include <iostream>
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-#include "≈.hpp"
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ClapTrap("unknown_clap_name"), ScavTrap(), FragTrap()
 {
-	setHitPoints(getHitPoints());
+	std::cout << "[DiamondTrap] Constructor called(Default)" << std::endl;
+	ScavTrap::setHitPoints(getHitPoints());
 	setEnergyPoints(getEnergyPoints());
 	setAttackDamage(getAttackDamage());
-	std::cout << "DiamondTrap " << this->getName() << " is created. (default constructor)" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(std::string.strcat(name, "_clap_name")), FragTrap(name), FragTrap(name), _name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name)
 {
-	setName(name);
+	std::cout << "[DiamondTrap] Constructor called" << std::endl;
 	setHitPoints(getHitPoints());
 	setEnergyPoints(getEnergyPoints());
 	setAttackDamage(getAttackDamage());
-	std::cout << "DiamondTrap " << this->getName() << " is created." << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "Bye, DiamondTrap " << this->getName() << "." << std::endl;
+	std::cout << "[DiamondTrap] Destructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &obj)
 {
-	std::cout << "DiamondTrap::Copy constructor called" << std::endl;
+	std::cout << "[DiamondTrap] Copy constructor called" << std::endl;
 	setName(obj.getName());
 	setHitPoints(obj.getHitPoints());
 	setEnergyPoints(obj.getEnergyPoints());
@@ -37,7 +36,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &obj)
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &obj)
 {
-	std::cout << "DiamondTrap::Copy assignment operator called" << std::endl;
+	std::cout << "[DiamondTrap] Copy assignment operator called" << std::endl;
 	setName(obj.getName());
 	setHitPoints(obj.getHitPoints());
 	setEnergyPoints(obj.getEnergyPoints());
@@ -96,5 +95,5 @@ void DiamondTrap::beRepaired(unsigned int amount)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "My name is " << this->_name << ". ClapTrap name is " << this->_name << "." << std::endl;
+	std::cout << "My name is " << this->_name << ". ClapTrap name is " << ClapTrap::getName() << "." << std::endl;
 }

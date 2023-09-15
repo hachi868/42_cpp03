@@ -9,6 +9,7 @@ int main(void)
 	DiamondTrap dt1("name_dt1");
 	std::string target = "target";
 
+	dt1.whoAmI();
 	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
 	dt1.attack(target);
 	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
@@ -25,8 +26,6 @@ int main(void)
 	dt1.takeDamage(5);
 	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
 	dt1.takeDamage(5);
-	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
-	dt1.whoAmI();
 	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
 	dt1.takeDamage(5);
 	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
