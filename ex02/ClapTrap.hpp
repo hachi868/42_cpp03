@@ -1,6 +1,7 @@
-
 #ifndef __CLAPTRAP_H__
 #define __CLAPTRAP_H__
+
+#include <iostream>
 
 class ClapTrap {
 public:

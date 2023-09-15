@@ -2,13 +2,21 @@
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap()
+{
+	setHitPoints(100);
+	setEnergyPoints(100);
+	setAttackDamage(30);
+	std::cout << "FragTrap " << this->getName() << " is created. (default constructor)" << std::endl;
+}
+
 FragTrap::FragTrap(std::string	name)
 {
-	std::cout << "FragTrap " << this->getName() << " is created." << std::endl;
 	setName(name);
 	setHitPoints(100);
-	setEnergyPoints(50);
-	setAttackDamage(20);
+	setEnergyPoints(100);
+	setAttackDamage(30);
+	std::cout << "FragTrap " << this->getName() << " is created." << std::endl;
 }
 
 FragTrap::~FragTrap()
