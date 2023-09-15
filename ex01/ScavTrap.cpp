@@ -2,13 +2,21 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() : _modeGuardGate(false)
+{
+	setHitPoints(100);
+	setEnergyPoints(50);
+	setAttackDamage(20);
+	std::cout << "ScavTrap " << this->getName() << " is created. (default constructor)" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
 {
-	std::cout << "ScavTrap " << this->getName() << " is created." << std::endl;
 	setName(name);
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackDamage(20);
+	std::cout << "ScavTrap " << this->getName() << " is created." << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -38,5 +46,11 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap::guardGate ON" << std::endl;
+	this->_modeGuardGate = true;
+	std::cout << "ScavTrap " << this->getName() << " : guardGate mode ON" << std::endl;
+}
+
+bool ScavTrap::getModeGuardGate()
+{
+	return (this->_modeGuardGate);
 }
