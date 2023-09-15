@@ -16,10 +16,11 @@ public:
 	unsigned int getHitPoints(void) const;
 	unsigned int getEnergyPoints(void) const;
 	unsigned int getAttackDamage(void) const;
-	void setName(std::string);
+	void setName(std::string name);
 	void setHitPoints(unsigned int amount);
 	void setEnergyPoints(unsigned int amount);
 	void setAttackDamage(unsigned int amount);
+
 private:
 	std::string		_name;
 	unsigned int	_hitPoints;
