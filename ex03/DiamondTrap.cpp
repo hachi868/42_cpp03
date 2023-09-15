@@ -4,20 +4,20 @@
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap("unknown_clap_name"), ScavTrap(), FragTrap()
+DiamondTrap::DiamondTrap() : ClapTrap("unknown_clap_name"), ScavTrap("unknown"), FragTrap("unknown"), _name("unknown")
 {
 	std::cout << "[DiamondTrap] Constructor called(Default)" << std::endl;
-	ScavTrap::setHitPoints(getHitPoints());
-	setEnergyPoints(getEnergyPoints());
-	setAttackDamage(getAttackDamage());
+	setHitPoints(FragTrap::getHitPoints());
+	setEnergyPoints(ScavTrap::getEnergyPoints());
+	setAttackDamage(FragTrap::getAttackDamage());
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
 	std::cout << "[DiamondTrap] Constructor called" << std::endl;
-	setHitPoints(getHitPoints());
-	setEnergyPoints(getEnergyPoints());
-	setAttackDamage(getAttackDamage());
+	setHitPoints(FragTrap::getHitPoints());
+	setEnergyPoints(ScavTrap::getEnergyPoints());
+	setAttackDamage(FragTrap::getAttackDamage());
 }
 
 DiamondTrap::~DiamondTrap()
@@ -44,10 +44,10 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &obj)
 	return (*this);
 }
 
-std::string DiamondTrap::getName(void) const
-{
-	return (ScavTrap::getName());
-}
+// std::string DiamondTrap::getName(void) const
+// {
+// 	return (ScavTrap::getName());
+// }
 
 unsigned int DiamondTrap::getHitPoints(void) const
 {
@@ -61,22 +61,22 @@ unsigned int DiamondTrap::getAttackDamage(void) const
 {
 	return (FragTrap::getAttackDamage());
 }
-void DiamondTrap::setName(std::string name)
-{
-	ScavTrap::setName(name);
-}
-void DiamondTrap::setHitPoints(unsigned int amount)
-{
-	FragTrap::setHitPoints(amount);
-}
-void DiamondTrap::setEnergyPoints(unsigned int amount)
-{
-	ScavTrap::setEnergyPoints(amount);
-}
-void DiamondTrap::setAttackDamage(unsigned int amount)
-{
-	FragTrap::setAttackDamage(amount);
-}
+// void DiamondTrap::setName(std::string name)
+// {
+// 	ScavTrap::setName(name);
+// }
+// void DiamondTrap::setHitPoints(unsigned int amount)
+// {
+// 	FragTrap::setHitPoints(amount);
+// }
+// void DiamondTrap::setEnergyPoints(unsigned int amount)
+// {
+// 	ScavTrap::setEnergyPoints(amount);
+// }
+// void DiamondTrap::setAttackDamage(unsigned int amount)
+// {
+// 	FragTrap::setAttackDamage(amount);
+// }
 
 void DiamondTrap::attack(const std::string &target)
 {
