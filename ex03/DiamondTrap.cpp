@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &obj) : ClapTrap(obj.getName()), Scav
 	std::cout << "[DiamondTrap] Copy constructor called" << std::endl;
 	*this = obj;
 	showInfo();
-	std::cout << "[DiamondTrap] this->getName()" << this->getName() << std::endl;
+	//std::cout << "[DiamondTrap] this->getName()" << this->getName() << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator = (const DiamondTrap &obj)
