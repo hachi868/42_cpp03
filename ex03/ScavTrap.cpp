@@ -1,29 +1,13 @@
 #include <iostream>
-//#include <string>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include "DiamondTrap.hpp"
 
 ScavTrap::ScavTrap() : _modeGuardGate(false)
 {
 	std::cout << "[ScavTrap] Default constructor called" << std::endl;
-	std::string name_result = this->getName();
-	std::string name_rm = "_clap_name";
-	size_t pos = name_result.find(name_rm);
-	if (pos != std::string::npos)
-	{
-		_name = name_result.replace(pos, name_rm.length(), "");
-		// this->setHitPoints(100);
-		this->setEnergyPoints(50);
-		// this->setAttackDamage(20);
-	}
-	else
-	{
-		this->setHitPoints(100);
-		this->setEnergyPoints(50);
-		this->setAttackDamage(20);
-	}
-	//showInfo();
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackDamage(20);
 }
 
 ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
@@ -33,7 +17,19 @@ ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
-	// showInfo();
+}
+
+ScavTrap::ScavTrap(bool isHp, bool isMp, bool isAd, std::string name) : _modeGuardGate(false)
+{
+	std::cout << "[ScavTrap] Constructor called (for inherit)" << std::endl;
+	//this->setName(name);
+	this->_name = name;
+	if (isHp)
+		this->setHitPoints(100);
+	if (isMp)
+		this->setEnergyPoints(50);
+	if (isAd)
+		this->setAttackDamage(20);
 }
 
 ScavTrap::~ScavTrap()

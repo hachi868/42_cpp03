@@ -9,6 +9,7 @@ class ScavTrap : virtual public ClapTrap
 public:
 	ScavTrap(void);
 	ScavTrap(std::string name);
+	ScavTrap(bool isHp, bool isMp, bool isAd, std::string name);
 	ScavTrap(const ScavTrap &obj);
 	ScavTrap &operator = (const ScavTrap &obj);
 	~ScavTrap();
@@ -17,8 +18,10 @@ public:
 	bool getModeGuardGate();
 
 private:
-	std::string _name;
 	bool _modeGuardGate;
+
+protected:
+	std::string _name;
 };
 
 #endif //__SCAVTRAP_H__

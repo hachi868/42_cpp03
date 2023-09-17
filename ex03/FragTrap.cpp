@@ -5,19 +5,9 @@
 FragTrap::FragTrap()
 {
 	std::cout << "[FragTrap] Default constructor called" << std::endl;
-	if (this->getName().find("_clap_name"))
-	{
-		this->setHitPoints(100);
-		// this->setEnergyPoints(100);
-		this->setAttackDamage(30);
-	}
-	else
-	{
-		this->setHitPoints(100);
-		this->setEnergyPoints(100);
-		this->setAttackDamage(30);
-	}
-	//showInfo();
+	this->setHitPoints(100);
+	this->setEnergyPoints(100);
+	this->setAttackDamage(30);
 }
 
 FragTrap::FragTrap(std::string	name)
@@ -27,7 +17,17 @@ FragTrap::FragTrap(std::string	name)
 	this->setHitPoints(100);
 	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
-	// showInfo();
+}
+
+FragTrap::FragTrap(bool isHp, bool isMp, bool isAd)
+{
+	std::cout << "[FragTrap] Constructor called (for inherit)" << std::endl;
+	if (isHp)
+		this->setHitPoints(100);
+	if (isMp)
+		this->setEnergyPoints(100);
+	if (isAd)
+		this->setAttackDamage(30);
 }
 
 FragTrap::~FragTrap()
