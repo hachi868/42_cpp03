@@ -3,7 +3,8 @@
 
 int main(void)
 {
-	DiamondTrap dt1("name_dt1");
+	DiamondTrap dt0("name_dt0");
+	DiamondTrap dt1(dt0);
 	std::string target = "target";
 
 	dt1.whoAmI();

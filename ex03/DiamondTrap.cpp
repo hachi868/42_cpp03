@@ -25,10 +25,12 @@ DiamondTrap::~DiamondTrap()
 DiamondTrap::DiamondTrap(const DiamondTrap &obj)
 {
 	std::cout << "[DiamondTrap] Copy constructor called" << std::endl;
-	setName(obj.getName());
+	std::cout << "[DiamondTrap] obj.getName()" << obj.getName() << std::endl;
+	setName("hhhhhhhh");
 	setHitPoints(obj.getHitPoints());
 	setEnergyPoints(obj.getEnergyPoints());
 	setAttackDamage(obj.getAttackDamage());
+	std::cout << "[DiamondTrap] this->getName()" << this->getName() << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &obj)
