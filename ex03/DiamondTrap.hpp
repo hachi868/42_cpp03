@@ -15,16 +15,6 @@ public:
 	DiamondTrap(const DiamondTrap &obj);
 	DiamondTrap &operator=(const DiamondTrap &obj);
 	~DiamondTrap();
-	//std::string getName(void) const;
-	unsigned int getHitPoints(void) const;
-	unsigned int getEnergyPoints(void) const;
-	unsigned int getAttackDamage(void) const;
-	// void setName(std::string name);
-	// void setHitPoints(unsigned int amount);
-	// void setEnergyPoints(unsigned int amount);
-	// void setAttackDamage(unsigned int amount);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
 	void attack(const std::string &target);
 	void whoAmI();
 

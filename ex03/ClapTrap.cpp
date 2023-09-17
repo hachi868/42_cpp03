@@ -3,28 +3,32 @@
 
 ClapTrap::ClapTrap(void) : _name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "[ClapTrap] Constructor called(Default)" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " is created. (default constructor)" << std::endl;
+	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define ClapTrap" << std::endl;
+	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string	name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "[ClapTrap] Constructor called" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " is created." << std::endl;
+	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define ClapTrap" << std::endl;
+	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define ClapTrap" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "[ClapTrap] Destructor called" << std::endl;
+	std::cout << "Bye, ClapTrap " << this->_name << "." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 	: _name(obj._name), _hitPoints(obj._hitPoints), _energyPoints(obj._energyPoints), _attackDamage(obj._attackDamage)
 {
-	std::cout << "[ClapTrap] Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator = (const ClapTrap &obj)
 {
-	std::cout << "[ClapTrap] Copy assignment operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	this->_name = obj._name;
 	this->_hitPoints = obj._hitPoints;
 	this->_energyPoints = obj._energyPoints;
@@ -36,11 +40,11 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->getEnergyPoints() == 0)
 	{
-		std::cout << "ClapTrap " << _name << " has no energy points. can't attack." << std::endl;
+		std::cout << "ClapTrap " << this->_name << " has no energy points. can't attack." << std::endl;
 		return ;
 	}
 	this->_energyPoints--;
-	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage! energyPoints--;" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage! energyPoints--;" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)

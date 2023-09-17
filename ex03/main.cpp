@@ -1,7 +1,4 @@
 #include <iostream>
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 #include "DiamondTrap.hpp"
 
 int main(void)
@@ -10,6 +7,9 @@ int main(void)
 	std::string target = "target";
 
 	dt1.whoAmI();
+	dt1.ScavTrap::guardGate();
+	dt1.FragTrap::highFivesGuys();
+	std::cout << dt1.ScavTrap::getHitPoints() << " | " << dt1.FragTrap::getEnergyPoints() << " | " << dt1.ScavTrap::getAttackDamage() << std::endl;
 	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
 	dt1.attack(target);
 	std::cout << "[" << dt1.getName() << "] hitPoints: " << dt1.getHitPoints() << " / energyPoints: " << dt1.getEnergyPoints() << std::endl;
