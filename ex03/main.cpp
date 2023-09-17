@@ -1,6 +1,11 @@
 #include <iostream>
 #include "DiamondTrap.hpp"
 
+__attribute__((destructor)) static void destructor()
+{
+	system("leaks -q ex03");
+}
+
 int main(void)
 {
 	std::string target = "target";
@@ -15,13 +20,6 @@ int main(void)
 	dt1.whoAmI();
 	dt1.ScavTrap::guardGate();
 	dt1.FragTrap::highFivesGuys();
-	std::cout << "-----" << std::endl;
-
-	DiamondTrap dt2 = dt0;
-	dt2.whoAmI();
-	dt2.ScavTrap::guardGate();
-	dt2.FragTrap::highFivesGuys();
-	std::cout << "-----" << std::endl;
 
 	dt1.showInfo();
 	dt1.attack(target);
@@ -51,6 +49,26 @@ int main(void)
 	dt1.attack(target);
 	dt1.showInfo();
 	dt1.whoAmI();
+	std::cout << "-----" << std::endl;
+
+	DiamondTrap dt2 = dt0;
+	dt2.whoAmI();
+	dt2.ScavTrap::guardGate();
+	dt2.FragTrap::highFivesGuys();
+	std::cout << "-----" << std::endl;
+
+	DiamondTrap dt3 = DiamondTrap("name_dt3");
+	dt3.whoAmI();
+	dt3.ScavTrap::guardGate();
+	dt3.FragTrap::highFivesGuys();
+	std::cout << "-----" << std::endl;
+
+	DiamondTrap *dt4 = new DiamondTrap("name_dt4");
+	dt4->whoAmI();
+	dt4->ScavTrap::guardGate();
+	dt4->FragTrap::highFivesGuys();
+	delete dt4;
+	std::cout << "-----" << std::endl;
 
 	return (0);
 }

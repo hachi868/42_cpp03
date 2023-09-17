@@ -22,7 +22,6 @@ ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
 ScavTrap::ScavTrap(bool isHp, bool isMp, bool isAd, std::string name) : _modeGuardGate(false)
 {
 	std::cout << "[ScavTrap] Constructor called (for inherit)" << std::endl;
-	//this->setName(name);
 	this->_name = name;
 	if (isHp)
 		this->setHitPoints(100);
