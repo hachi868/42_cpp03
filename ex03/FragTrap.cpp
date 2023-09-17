@@ -5,9 +5,18 @@
 FragTrap::FragTrap()
 {
 	std::cout << "[FragTrap] Default constructor called" << std::endl;
-	this->setHitPoints(100);
-	//this->setEnergyPoints(100);
-	this->setAttackDamage(30);
+	if (this->getName().find("_clap_name"))
+	{
+		this->setHitPoints(100);
+		// this->setEnergyPoints(100);
+		this->setAttackDamage(30);
+	}
+	else
+	{
+		this->setHitPoints(100);
+		this->setEnergyPoints(100);
+		this->setAttackDamage(30);
+	}
 	//showInfo();
 }
 
@@ -47,5 +56,5 @@ FragTrap &FragTrap::operator = (const FragTrap &obj)
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap: How about a celebratory high five?" << std::endl;
+	std::cout << "[FragTrap::highFivesGuys] How about a celebratory high five?" << std::endl;
 }

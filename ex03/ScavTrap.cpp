@@ -1,4 +1,5 @@
 #include <iostream>
+//#include <string>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "DiamondTrap.hpp"
@@ -6,9 +7,22 @@
 ScavTrap::ScavTrap() : _modeGuardGate(false)
 {
 	std::cout << "[ScavTrap] Default constructor called" << std::endl;
-	//this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	//this->setAttackDamage(20);
+	std::string name_result = this->getName();
+	std::string name_rm = "_clap_name";
+	size_t pos = name_result.find(name_rm);
+	if (pos != std::string::npos)
+	{
+		_name = name_result.replace(pos, name_rm.length(), "");
+		// this->setHitPoints(100);
+		this->setEnergyPoints(50);
+		// this->setAttackDamage(20);
+	}
+	else
+	{
+		this->setHitPoints(100);
+		this->setEnergyPoints(50);
+		this->setAttackDamage(20);
+	}
 	//showInfo();
 }
 
@@ -61,7 +75,7 @@ void ScavTrap::attack(const std::string& target)
 void ScavTrap::guardGate()
 {
 	this->_modeGuardGate = true;
-	std::cout << "ScavTrap " << this->getName() << " : guardGate mode ON" << std::endl;
+	std::cout << "[ScavTrap::guardGate] " << this->_name << " : guardGate mode ON " << std::endl;
 }
 
 bool ScavTrap::getModeGuardGate()

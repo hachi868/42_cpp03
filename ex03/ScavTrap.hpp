@@ -17,6 +17,7 @@ public:
 	bool getModeGuardGate();
 
 private:
+	std::string _name;
 	bool _modeGuardGate;
 };
 
