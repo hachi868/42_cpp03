@@ -4,14 +4,12 @@
 
 FragTrap::FragTrap()
 {
-	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define FragTrap" << std::endl;
-	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define FragTrap" << std::endl;
+	showInfo();
 	this->setHitPoints(100);
 	//this->setEnergyPoints(100);
 	this->setAttackDamage(30);
 	std::cout << "FragTrap " << this->getName() << " is created. (default constructor)" << std::endl;
-	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define FragTrap" << std::endl;
-	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define FragTrap" << std::endl;
+	showInfo();
 }
 
 FragTrap::FragTrap(std::string	name)
@@ -26,7 +24,7 @@ FragTrap::FragTrap(std::string	name)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "Bye, FragTrap " << this->getName() << "." << std::endl;
+	std::cout << "[FragTrap] Destructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &obj)

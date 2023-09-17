@@ -4,15 +4,13 @@
 ClapTrap::ClapTrap(void) : _name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap " << this->_name << " is created. (default constructor)" << std::endl;
-	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define ClapTrap" << std::endl;
-	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define ClapTrap" << std::endl;
+	showInfo();
 }
 
 ClapTrap::ClapTrap(std::string	name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap " << this->_name << " is created." << std::endl;
-	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define ClapTrap" << std::endl;
-	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define ClapTrap" << std::endl;
+	showInfo();
 }
 
 ClapTrap::~ClapTrap()
@@ -111,4 +109,9 @@ void ClapTrap::setEnergyPoints(unsigned int amount)
 void ClapTrap::setAttackDamage(unsigned int amount)
 {
 	this->_attackDamage = amount;
+}
+
+void ClapTrap::showInfo(void)
+{
+	std::cout << this->getName() << " : " << this->getHitPoints() << "/" << this->getEnergyPoints() << "/" << this->getAttackDamage() << std::endl;
 }

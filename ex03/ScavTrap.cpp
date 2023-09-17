@@ -4,14 +4,12 @@
 
 ScavTrap::ScavTrap() : _modeGuardGate(false)
 {
-	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define ScavTrap" << std::endl;
-	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define ScavTrap" << std::endl;
+	showInfo();
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
 	std::cout << "ScavTrap " << this->getName() << " is created. (default constructor)" << std::endl;
-	std::cout << ClapTrap::_hitPoints << " " << ClapTrap::_energyPoints << " " << ClapTrap::_attackDamage << " :define ScavTrap" << std::endl;
-	std::cout << this->_hitPoints << " " << this->_energyPoints << " " << this->_attackDamage << "  :define ScavTrap" << std::endl;
+	showInfo();
 }
 
 ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
@@ -26,7 +24,7 @@ ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "Bye, ScavTrap " << this->getName() << "." << std::endl;
+	std::cout << "[ScavTrap] Destructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj) : _modeGuardGate(false)
