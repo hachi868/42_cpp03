@@ -4,19 +4,19 @@
 
 ScavTrap::ScavTrap() : _modeGuardGate(false)
 {
+	std::cout << "[ScavTrap] Default constructor called" << std::endl;
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackDamage(20);
-	std::cout << "[ScavTrap] Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
 {
+	std::cout << "[ScavTrap] Constructor called" << std::endl;
 	setName(name);
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackDamage(20);
-	std::cout << "[ScavTrap] Constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
