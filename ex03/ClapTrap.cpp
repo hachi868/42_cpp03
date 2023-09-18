@@ -36,11 +36,11 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->getEnergyPoints() == 0)
 	{
-		std::cout << this->getName() << " has no energy points. can't attack." << std::endl;
+		std::cout << "[ClapTrap::attack] " << this->_name << " nts. can't attack." << std::endl;
 		return ;
 	}
 	this->_energyPoints--;
-	std::cout << this->getName() << " attacks " << target << ", causing " << this->_attackDamage << " points of damage! energyPoints--;" << std::endl;
+	std::cout << "[ClapTrap::attack] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage! energyPoints--;" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -49,24 +49,24 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 	if (this->getHitPoints() == 0)
 	{
-		std::cout << "(" << this->getName() << " has 0 points of HitPoint.)" << std::endl;
+		std::cout << "([ClapTrap::takeDamage] " << this->getName() << " has 0 points of HitPoint.)" << std::endl;
 		return;
 	}
 	damage = (this->getHitPoints() < amount) ? this->getHitPoints() : amount;
 	this->_hitPoints -= damage;
-	std::cout << this->getName() << " take damage. " << damage << " points of damage!" << std::endl;
+	std::cout << "[ClapTrap::takeDamage] " << this->getName() << " take damage. " << damage << " points of damage!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->getEnergyPoints() == 0)
 	{
-		std::cout << this->getName() << " has no energyPoints. can't repaire." << std::endl;
+		std::cout << "([ClapTrap::beRepaired] " << this->getName() << " has no energyPoints. can't repaire.)" << std::endl;
 		return ;
 	}
 	this->_energyPoints--;
 	this->_hitPoints += amount;
-	std::cout << this->getName() << " be repaired." << amount << " points of HitPoint is repaired! energyPoints--;" << std::endl;
+	std::cout << "[ClapTrap::beRepaired] " << this->getName() << " be repaired." << amount << " points of HitPoint is repaired! energyPoints--;" << std::endl;
 }
 
 std::string ClapTrap::getName(void) const
