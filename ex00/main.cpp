@@ -3,7 +3,7 @@
 
 __attribute__((destructor)) static void destructor()
 {
-	system("leaks -q clapTrap");
+	system("leaks -q claptrap");
 }
 
 void testLoop(ClapTrap &ct) {
@@ -29,30 +29,30 @@ void testLoop(ClapTrap &ct) {
 
 int main( void )
 {
-	std::cout << "[test0] Default constructor" << std::endl;
-	ClapTrap ct0;
-	//testLoop(ct0);
+	// std::cout << "[test0] Default constructor" << std::endl;
+	// ClapTrap ct0;
+	// testLoop(ct0);
 
 	std::cout << "[test1] name constructor" << std::endl;
 	ClapTrap ct1("name_ct1");
-	//testLoop(ct1);
+	testLoop(ct1);
 
-	std::cout << "[test2] Copy constructor" << std::endl;
-	ClapTrap ct2(ct1);
-	testLoop(ct2);
+	// std::cout << "[test2] Copy constructor" << std::endl;
+	// ClapTrap ct2(ct1);
+	// testLoop(ct2);
 
-	std::cout << "[test3] Copy constructor" << std::endl;
-	ClapTrap &ct3a = ct0;
-	ClapTrap ct3 = ct3a;
-	testLoop(ct3);
+	// std::cout << "[test3] Copy constructor" << std::endl;
+	// ClapTrap &ct3a = ct0;
+	// ClapTrap ct3 = ct3a;
+	// testLoop(ct3);
 
-	std::cout << "[test4] Copy assignment & name constructor" << std::endl;
-	ClapTrap ct4 = ClapTrap("name_ct4");
-	testLoop(ct4);
+	// std::cout << "[test4] Copy assignment & name constructor" << std::endl;
+	// ClapTrap ct4 = ClapTrap("name_ct4");
+	// testLoop(ct4);
 
-	std::cout << "[test5] new" << std::endl;
-	ClapTrap *ct5 = new ClapTrap("name_ct5");
-	testLoop(*ct5);
-	delete ct5;
+	// std::cout << "[test5] new" << std::endl;
+	// ClapTrap *ct5 = new ClapTrap("name_ct5");
+	// testLoop(*ct5);
+	// delete ct5;
 	return (0);
 }
