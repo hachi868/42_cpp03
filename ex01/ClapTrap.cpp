@@ -36,7 +36,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->getEnergyPoints() == 0)
 	{
-		std::cout << "[ClapTrap::attack] " << this->_name << " nts. can't attack." << std::endl;
+		std::cout << "[ClapTrap::attack] " << this->_name << " has no energy points. can't attack." << std::endl;
 		return ;
 	}
 	this->_energyPoints--;
