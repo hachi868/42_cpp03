@@ -6,52 +6,50 @@ __attribute__((destructor)) static void destructor()
 	system("leaks -q clapTrap");
 }
 
+void testLoop(ClapTrap &ct) {
+	(void)ct;
+//	int i = 0;
+//	std::string target = "target";
+//
+//	std::cout << "inited value:" << std::endl;
+//	ct.showInfo();
+//	std::cout << std::endl;
+//	while (i < 10)
+//	{
+//		if (i == 2 || i == 5 || i == 8)
+//			ct.takeDamage(5);
+//		else if (i == 3 || i == 7)
+//			ct.beRepaired(5);
+//		else
+//			ct.attack(target);
+//		ct.showInfo();
+//		i++;
+//	}
+	std::cout << "-----" << std::endl;
+}
+
 int main( void ) {
+	ClapTrap ct00;
+	testLoop(ct00);
+	std::cout << "[test0] name constructor" << std::endl;
 	ClapTrap ct0("name_ct0");
-	std::string target = "target";
-	std::cout << "-----" << std::endl;
+	testLoop(ct0);
 
+	std::cout << "[test1] name constructor" << std::endl;
 	ClapTrap ct1(ct0);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.takeDamage(5);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.takeDamage(5);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.beRepaired(5);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	ct1.attack(target);
-	std::cout << "[" << ct1.getName() << "] hitPoints: " << ct1.getHitPoints() << " / getEnergyPoints: " << ct1.getEnergyPoints() << std::endl;
-	std::cout << "-----" << std::endl;
+	testLoop(ct1);
 
+	std::cout << "[test2] name constructor" << std::endl;
 	ClapTrap ct2 = ct0;
-	std::cout << "[" << ct2.getName() << "] hitPoints: " << ct2.getHitPoints() << " / getEnergyPoints: " << ct2.getEnergyPoints() << std::endl;
-	std::cout << "-----" << std::endl;
+	testLoop(ct2);
 
+	std::cout << "[test3] name constructor" << std::endl;
 	ClapTrap ct3 = ClapTrap("name_ct3");
-	std::cout << "[" << ct3.getName() << "] hitPoints: " << ct3.getHitPoints() << " / getEnergyPoints: " << ct3.getEnergyPoints() << std::endl;
-	std::cout << "-----" << std::endl;
+	testLoop(ct3);
 
+	std::cout << "[test4] name constructor" << std::endl;
 	ClapTrap *ct4 = new ClapTrap("name_ct4");
-	std::cout << "[" << ct4->getName() << "] hitPoints: " << ct4->getHitPoints() << " / getEnergyPoints: " << ct4->getEnergyPoints() << std::endl;
+	testLoop(*ct4);
 	delete ct4;
-	std::cout << "-----" << std::endl;
 	return (0);
 }
