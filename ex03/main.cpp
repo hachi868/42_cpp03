@@ -3,7 +3,7 @@
 
 __attribute__((destructor)) static void destructor()
 {
-	system("leaks -q ex03");
+	system("leaks -q diamondtrap");
 }
 
 int main(void)

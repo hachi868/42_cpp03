@@ -19,10 +19,9 @@ ScavTrap::ScavTrap(std::string	name) : _modeGuardGate(false)
 	this->setAttackDamage(20);
 }
 
-ScavTrap::ScavTrap(bool isHp, bool isMp, bool isAd, std::string name) : _modeGuardGate(false)
+ScavTrap::ScavTrap(bool isHp, bool isMp, bool isAd) : _modeGuardGate(false)
 {
 	std::cout << "[ScavTrap] Constructor called (for DiamondTrap)" << std::endl;
-	this->_name = name;
 	if (isHp)
 		this->setHitPoints(100);
 	if (isMp)
@@ -39,19 +38,19 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap &obj) : _modeGuardGate(false)
 {
 	std::cout << "[ScavTrap] Copy constructor called" << std::endl;
-	setName(obj.getName());
-	setHitPoints(obj.getHitPoints());
-	setEnergyPoints(obj.getEnergyPoints());
-	setAttackDamage(obj.getAttackDamage());
+	this->setName(obj.getName());
+	this->setHitPoints(obj.getHitPoints());
+	this->setEnergyPoints(obj.getEnergyPoints());
+	this->setAttackDamage(obj.getAttackDamage());
 }
 
 ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
 {
 	std::cout << "[ScavTrap] Copy assignment operator called" << std::endl;
-	setName(obj.getName());
-	setHitPoints(obj.getHitPoints());
-	setEnergyPoints(obj.getEnergyPoints());
-	setAttackDamage(obj.getAttackDamage());
+	this->setName(obj.getName());
+	this->setHitPoints(obj.getHitPoints());
+	this->setEnergyPoints(obj.getEnergyPoints());
+	this->setAttackDamage(obj.getAttackDamage());
 	this->_modeGuardGate = obj._modeGuardGate;
 	return (*this);
 }
@@ -63,8 +62,8 @@ void ScavTrap::attack(const std::string& target)
 		std::cout << "[ScavTrap::attack] " << this->_name << " has no energy points. can't attack." << std::endl;
 		return ;
 	}
-	this->_energyPoints--;
-	std::cout << "[ScavTrap::attack] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage! energyPoints--;" << std::endl;
+	this->setEnergyPoints(this->getEnergyPoints() - 1);
+	std::cout << "[ScavTrap::attack] " << this->_name << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage! energyPoints--;" << std::endl;
 }
 
 void ScavTrap::guardGate()

@@ -1,4 +1,4 @@
-PROG := ex03
+PROG := diamondtrap
 
 COMPILER := c++
 FLAGS := -Wall -Wextra -Werror

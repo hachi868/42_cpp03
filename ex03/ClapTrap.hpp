@@ -21,9 +21,12 @@ public:
 	void setHitPoints(unsigned int amount);
 	void setEnergyPoints(unsigned int amount);
 	void setAttackDamage(unsigned int amount);
+	void showInfo(void);
 
 protected:
-	std::string		_name;
+	std::string _name;
+
+private:
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
 	unsigned int	_attackDamage;

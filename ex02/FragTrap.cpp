@@ -5,18 +5,18 @@
 FragTrap::FragTrap()
 {
 	std::cout << "[FragTrap] Default constructor called" << std::endl;
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	this->setHitPoints(100);
+	this->setEnergyPoints(100);
+	this->setAttackDamage(30);
 }
 
 FragTrap::FragTrap(std::string	name)
 {
 	std::cout << "[FragTrap] Constructor called" << std::endl;
-	setName(name);
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	this->setName(name);
+	this->setHitPoints(100);
+	this->setEnergyPoints(100);
+	this->setAttackDamage(30);
 }
 
 FragTrap::~FragTrap()
@@ -33,10 +33,10 @@ FragTrap::FragTrap(const FragTrap &obj)
 FragTrap &FragTrap::operator = (const FragTrap &obj)
 {
 	std::cout << "[FragTrap] Copy assignment operator called" << std::endl;
-	setName(obj.getName());
-	setHitPoints(obj.getHitPoints());
-	setEnergyPoints(obj.getEnergyPoints());
-	setAttackDamage(obj.getAttackDamage());
+	this->setName(obj.getName());
+	this->setHitPoints(obj.getHitPoints());
+	this->setEnergyPoints(obj.getEnergyPoints());
+	this->setAttackDamage(obj.getAttackDamage());
 	return (*this);
 }
 

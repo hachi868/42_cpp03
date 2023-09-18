@@ -25,10 +25,10 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 ClapTrap &ClapTrap::operator = (const ClapTrap &obj)
 {
 	std::cout << "[ClapTrap] Copy assignment operator called" << std::endl;
-	setName(obj.getName());
-	setHitPoints(obj.getHitPoints());
-	setEnergyPoints(obj.getEnergyPoints());
-	setAttackDamage(obj.getAttackDamage());
+	this->setName(obj.getName());
+	this->setHitPoints(obj.getHitPoints());
+	this->setEnergyPoints(obj.getEnergyPoints());
+	this->setAttackDamage(obj.getAttackDamage());
 	return (*this);
 }
 

@@ -17,18 +17,18 @@ ClapTrap::~ClapTrap()
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
-	: _name(obj._name), _hitPoints(obj._hitPoints), _energyPoints(obj._energyPoints), _attackDamage(obj._attackDamage)
 {
 	std::cout << "[ClapTrap] Copy constructor called" << std::endl;
+	*this = obj;
 }
 
 ClapTrap &ClapTrap::operator = (const ClapTrap &obj)
 {
 	std::cout << "[ClapTrap] Copy assignment operator called" << std::endl;
-	this->_name = obj._name;
-	this->_hitPoints = obj._hitPoints;
-	this->_energyPoints = obj._energyPoints;
-	this->_attackDamage = obj._attackDamage;
+	this->setName(obj.getName());
+	this->setHitPoints(obj.getHitPoints());
+	this->setEnergyPoints(obj.getEnergyPoints());
+	this->setAttackDamage(obj.getAttackDamage());
 	return (*this);
 }
 
@@ -107,4 +107,9 @@ void ClapTrap::setEnergyPoints(unsigned int amount)
 void ClapTrap::setAttackDamage(unsigned int amount)
 {
 	this->_attackDamage = amount;
+}
+
+void ClapTrap::showInfo(void)
+{
+	std::cout << "[ " << this->getName() << " ] " << this->getHitPoints() << "/" << this->getEnergyPoints() << "/" << this->getAttackDamage() << std::endl;
 }
