@@ -12,7 +12,8 @@ public:
 	ScavTrap &operator = (const ScavTrap &obj);
 	~ScavTrap();
 	void guardGate();
-	bool getModeGuardGate();
+	bool getModeGuardGate() const;
+	void setModeGuardGate(bool modeGuardGate);
 
 private:
 	bool _modeGuardGate;
