@@ -1,6 +1,6 @@
 PROG := claptrap
 
-COMPILER := c++
+CXX := c++
 FLAGS := -Wall -Wextra -Werror
 FLAGS_ADD := -std=c++98
 SRCS =	main.cpp \
@@ -9,10 +9,10 @@ SRCS =	main.cpp \
 OBJS := $(SRCS:.cpp=.o)
 
 %.o: %.cpp
-	$(COMPILER) $(FLAGS) $(FLAGS_ADD) -c $< -o $@
+	$(CXX) $(FLAGS) $(FLAGS_ADD) -c $< -o $@
 
 $(PROG): $(OBJS)
-	$(COMPILER) $(FLAGS) $(FLAGS_ADD) -o $@ $(OBJS)
+	$(CXX) $(FLAGS) $(FLAGS_ADD) -o $@ $(OBJS)
 
 all: $(PROG)
 
