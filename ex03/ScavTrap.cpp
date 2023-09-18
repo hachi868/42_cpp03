@@ -38,10 +38,7 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap &obj) : _modeGuardGate(false)
 {
 	std::cout << "[ScavTrap] Copy constructor called" << std::endl;
-	this->setName(obj.getName());
-	this->setHitPoints(obj.getHitPoints());
-	this->setEnergyPoints(obj.getEnergyPoints());
-	this->setAttackDamage(obj.getAttackDamage());
+	*this = obj;
 }
 
 ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
@@ -51,7 +48,7 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
 	this->setHitPoints(obj.getHitPoints());
 	this->setEnergyPoints(obj.getEnergyPoints());
 	this->setAttackDamage(obj.getAttackDamage());
-	this->_modeGuardGate = obj._modeGuardGate;
+	this->setModeGuardGate(obj.getModeGuardGate());
 	return (*this);
 }
 
@@ -68,11 +65,21 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
-	this->_modeGuardGate = true;
-	std::cout << "[ScavTrap::guardGate] " << this->_name << " : guardGate mode ON " << std::endl;
+	if (this->getModeGuardGate())
+		std::cout << "([ScavTrap::guardGate] " << this->getName() << " : guardGate mode is already ON )" << std::endl;
+	else
+	{
+		this->setModeGuardGate(true);
+		std::cout << "[ScavTrap::guardGate] " << this->getName() << " : guardGate mode ON " << std::endl;
+	}
 }
 
-bool ScavTrap::getModeGuardGate()
+bool ScavTrap::getModeGuardGate() const
 {
 	return (this->_modeGuardGate);
+}
+
+void ScavTrap::setModeGuardGate(bool modeGuardGate)
+{
+	this->_modeGuardGate = modeGuardGate;
 }

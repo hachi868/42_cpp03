@@ -38,10 +38,7 @@ FragTrap::~FragTrap()
 FragTrap::FragTrap(const FragTrap &obj)
 {
 	std::cout << "[FragTrap] Copy constructor called" << std::endl;
-	this->setName(obj.getName());
-	this->setHitPoints(obj.getHitPoints());
-	this->setEnergyPoints(obj.getEnergyPoints());
-	this->setAttackDamage(obj.getAttackDamage());
+	*this = obj;
 }
 
 FragTrap &FragTrap::operator = (const FragTrap &obj)

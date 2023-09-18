@@ -15,7 +15,8 @@ public:
 	~ScavTrap();
 	void attack(const std::string& target);
 	void guardGate();
-	bool getModeGuardGate();
+	bool getModeGuardGate() const;
+	void setModeGuardGate(bool modeGuardGate);
 
 private:
 	bool _modeGuardGate;
