@@ -50,7 +50,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (this->getHitPoints() == 0)
 	{
 		std::cout << "([ClapTrap::takeDamage] " << this->getName() << " has 0 points of HitPoint.)" << std::endl;
-		return;
+		return ;
 	}
 	damage = (this->getHitPoints() < amount) ? this->getHitPoints() : amount;
 	this->_hitPoints -= damage;

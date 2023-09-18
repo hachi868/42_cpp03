@@ -21,7 +21,7 @@ FragTrap::FragTrap(std::string	name)
 
 FragTrap::FragTrap(bool isHp, bool isMp, bool isAd)
 {
-	std::cout << "[FragTrap] Constructor called (for inherit)" << std::endl;
+	std::cout << "[FragTrap] Constructor called (for DiamondTrap)" << std::endl;
 	if (isHp)
 		this->setHitPoints(100);
 	if (isMp)

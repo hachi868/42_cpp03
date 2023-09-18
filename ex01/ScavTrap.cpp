@@ -27,10 +27,7 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap &obj) : _modeGuardGate(false)
 {
 	std::cout << "[ScavTrap] Copy constructor called" << std::endl;
-	setName(obj.getName());
-	setHitPoints(obj.getHitPoints());
-	setEnergyPoints(obj.getEnergyPoints());
-	setAttackDamage(obj.getAttackDamage());
+	*this = obj;
 }
 
 ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
@@ -40,17 +37,22 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
 	setHitPoints(obj.getHitPoints());
 	setEnergyPoints(obj.getEnergyPoints());
 	setAttackDamage(obj.getAttackDamage());
-	this->_modeGuardGate = obj._modeGuardGate;
+	setModeGuardGate(obj.getModeGuardGate());
 	return (*this);
 }
 
 void ScavTrap::guardGate()
 {
 	this->_modeGuardGate = true;
-	std::cout << "[ScavTrap::guardGate] " << this->_name << " : guardGate mode ON " << std::endl;
+	std::cout << "[ScavTrap::guardGate] " << this->getName() << " : guardGate mode ON " << std::endl;
 }
 
 bool ScavTrap::getModeGuardGate()
 {
 	return (this->_modeGuardGate);
+}
+
+void ScavTrap::setModeGuardGate(bool modeGuardGate)
+{
+	this->_modeGuardGate = modeGuardGate;
 }

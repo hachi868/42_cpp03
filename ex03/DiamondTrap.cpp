@@ -54,7 +54,6 @@ void DiamondTrap::whoAmI()
 	//std::cout << &(this->_name) << " / " << &(ClapTrap::_name) << std::endl;
 }
 
-
 void DiamondTrap::showInfo(void)
 {
 	std::cout << "[ " << this->_name << " ] " << this->getHitPoints() << "/" << this->getEnergyPoints() << "/" << this->getAttackDamage() << std::endl;

@@ -13,6 +13,7 @@ public:
 	~ScavTrap();
 	void guardGate();
 	bool getModeGuardGate();
+	void setModeGuardGate(bool modeGuardGate);
 
 private:
 	bool _modeGuardGate;
