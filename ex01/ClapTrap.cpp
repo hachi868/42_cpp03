@@ -108,3 +108,8 @@ void ClapTrap::setAttackDamage(unsigned int amount)
 {
 	this->_attackDamage = amount;
 }
+
+void ClapTrap::showInfo(void)
+{
+	std::cout << "[ " << this->getName() << " ] " << this->getHitPoints() << "/" << this->getEnergyPoints() << "/" << this->getAttackDamage() << std::endl;
+}

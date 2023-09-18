@@ -1,4 +1,4 @@
-PROG := ex01
+PROG := scavtrap
 
 COMPILER := c++
 FLAGS := -Wall -Wextra -Werror

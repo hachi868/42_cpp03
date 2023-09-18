@@ -43,11 +43,16 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
 
 void ScavTrap::guardGate()
 {
-	this->_modeGuardGate = true;
-	std::cout << "[ScavTrap::guardGate] " << this->getName() << " : guardGate mode ON " << std::endl;
+	if (this->getModeGuardGate())
+		std::cout << "([ScavTrap::guardGate] " << this->getName() << " : guardGate mode is already ON )" << std::endl;
+	else
+	{
+		this->setModeGuardGate(true);
+		std::cout << "[ScavTrap::guardGate] " << this->getName() << " : guardGate mode ON " << std::endl;
+	}
 }
 
-bool ScavTrap::getModeGuardGate()
+bool ScavTrap::getModeGuardGate() const
 {
 	return (this->_modeGuardGate);
 }
