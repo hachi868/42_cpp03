@@ -6,69 +6,59 @@ __attribute__((destructor)) static void destructor()
 	system("leaks -q diamondtrap");
 }
 
-int main(void)
+void testLoop(DiamondTrap &dt)
 {
+	int i = 0;
 	std::string target = "target";
 
-	DiamondTrap dt0("name_dt0");
-	dt0.whoAmI();
-	dt0.ScavTrap::guardGate();
-	dt0.FragTrap::highFivesGuys();
+	std::cout << "inited value: ";
+	dt.showInfo();
+	std::cout << std::endl;
+	dt.whoAmI();
+	dt.ScavTrap::guardGate();
+	dt.FragTrap::highFivesGuys();
+	std::cout << std::endl;
+	while (i < 10)
+	{
+		if (i == 2 || i == 5 || i == 6)
+			dt.takeDamage(5);
+		else if (i == 3 || i == 7)
+			dt.beRepaired(5);
+		else
+			dt.attack(target);
+		dt.showInfo();
+		i++;
+	}
 	std::cout << "-----" << std::endl;
+}
 
-	DiamondTrap dt1(dt0);
-	dt1.whoAmI();
-	dt1.ScavTrap::guardGate();
-	dt1.FragTrap::highFivesGuys();
+int main(void)
+{
+	std::cout << "[test0] Default constructor" << std::endl;
+	DiamondTrap dt0;
+	testLoop(dt0);
 
-	dt1.showInfo();
-	dt1.attack(target);
-	dt1.showInfo();
-	dt1.attack(target);
-	dt1.showInfo();
-	dt1.takeDamage(5);
-	dt1.showInfo();
-	dt1.takeDamage(5);
-	dt1.showInfo();
-	dt1.beRepaired(5);
-	dt1.showInfo();
-	dt1.attack(target);
-	dt1.showInfo();
-	dt1.takeDamage(5);
-	dt1.showInfo();
-	dt1.takeDamage(5);
-	dt1.showInfo();
-	dt1.takeDamage(5);
-	dt1.showInfo();
-	dt1.attack(target);
-	dt1.showInfo();
-	dt1.attack(target);
-	dt1.showInfo();
-	dt1.takeDamage(5);
-	dt1.showInfo();
-	dt1.attack(target);
-	dt1.showInfo();
-	dt1.whoAmI();
-	std::cout << "-----" << std::endl;
+	std::cout << "[test1] name constructor" << std::endl;
+	DiamondTrap dt1("name_dt1");
+	testLoop(dt1);
 
-	DiamondTrap dt2 = dt0;
-	dt2.whoAmI();
-	dt2.ScavTrap::guardGate();
-	dt2.FragTrap::highFivesGuys();
-	std::cout << "-----" << std::endl;
+	std::cout << "[test2] Copy constructor" << std::endl;
+	DiamondTrap dt2(dt1);
+	testLoop(dt2);
 
-	DiamondTrap dt3 = DiamondTrap("name_dt3");
-	dt3.whoAmI();
-	dt3.ScavTrap::guardGate();
-	dt3.FragTrap::highFivesGuys();
-	std::cout << "-----" << std::endl;
+	std::cout << "[test3] Copy constructor" << std::endl;
+	DiamondTrap &dt3a = dt0;
+	DiamondTrap dt3 = dt3a;
+	testLoop(dt3);
 
-	DiamondTrap *dt4 = new DiamondTrap("name_dt4");
-	dt4->whoAmI();
-	dt4->ScavTrap::guardGate();
-	dt4->FragTrap::highFivesGuys();
-	delete dt4;
-	std::cout << "-----" << std::endl;
+	std::cout << "[test4] Copy assignment & name constructor" << std::endl;
+	DiamondTrap dt4 = DiamondTrap("name_dt4");
+	testLoop(dt4);
+
+	std::cout << "[test5] new" << std::endl;
+	DiamondTrap *dt5 = new DiamondTrap("name_dt5");
+	testLoop(*dt5);
+	delete dt5;
 
 	return (0);
 }
