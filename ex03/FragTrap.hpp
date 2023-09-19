@@ -4,15 +4,20 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap {
+class FragTrap : virtual public ClapTrap
+{
 public:
 	FragTrap(void);
 	FragTrap(std::string name);
-	FragTrap(bool isHp, bool isMp, bool isAd);
 	FragTrap(const FragTrap &obj);
 	FragTrap &operator = (const FragTrap &obj);
 	~FragTrap();
 	void highFivesGuys(void);
+
+protected:
+	static const unsigned int _hitPointsDefault;
+	static const unsigned int _energyPointsDefault;
+	static const unsigned int _attackDamageDefault;
 };
 
 #endif //__FRAGTRAP_H__

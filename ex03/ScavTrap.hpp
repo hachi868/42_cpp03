@@ -9,17 +9,19 @@ class ScavTrap : virtual public ClapTrap
 public:
 	ScavTrap(void);
 	ScavTrap(std::string name);
-	ScavTrap(bool isHp, bool isMp, bool isAd);
 	ScavTrap(const ScavTrap &obj);
 	ScavTrap &operator = (const ScavTrap &obj);
 	~ScavTrap();
-	void attack(const std::string& target);
+	void attack(const std::string &target);
 	void guardGate();
-	bool getModeGuardGate() const;
-	void setModeGuardGate(bool modeGuardGate);
 
 private:
 	bool _modeGuardGate;
+
+protected:
+	static const unsigned int _hitPointsDefault;
+	static const unsigned int _energyPointsDefault;
+	static const unsigned int _attackDamageDefault;
 };
 
 #endif //__SCAVTRAP_H__

@@ -7,6 +7,7 @@ class ClapTrap {
 public:
 	ClapTrap(void);
 	ClapTrap(std::string name);
+	ClapTrap(std::string name, unsigned int _hitPoints, unsigned int _energyPoints, unsigned int _attackDamage);
 	ClapTrap(const ClapTrap &obj);
 	ClapTrap &operator = (const ClapTrap &obj);
 	~ClapTrap();
@@ -17,19 +18,17 @@ public:
 	unsigned int getHitPoints(void) const;
 	unsigned int getEnergyPoints(void) const;
 	unsigned int getAttackDamage(void) const;
-	void setName(std::string name);
-	void setHitPoints(unsigned int amount);
-	void setEnergyPoints(unsigned int amount);
-	void setAttackDamage(unsigned int amount);
-	void showInfo(void);
 
 protected:
 	std::string _name;
-
-private:
-	unsigned int	_hitPoints;
-	unsigned int	_energyPoints;
-	unsigned int	_attackDamage;
+	unsigned int _hitPoints;
+	unsigned int _energyPoints;
+	unsigned int _attackDamage;
+	static const unsigned int	_hitPointsDefault;
+	static const unsigned int	_energyPointsDefault;
+	static const unsigned int	_attackDamageDefault;
 };
+
+std::ostream &operator << (std::ostream &os, const ClapTrap &ct);
 
 #endif //__CLAPTRAP_H__
