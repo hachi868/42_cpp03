@@ -2,21 +2,18 @@
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+const unsigned int FragTrap::_hitPointsDefault = 100;
+const unsigned int FragTrap::_energyPointsDefault = 100;
+const unsigned int FragTrap::_attackDamageDefault = 30;
+
+FragTrap::FragTrap() : ClapTrap("unknown", _hitPointsDefault, _energyPointsDefault, _attackDamageDefault)
 {
 	std::cout << "[FragTrap] Default constructor called" << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
 }
 
-FragTrap::FragTrap(std::string	name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, _hitPointsDefault, _energyPointsDefault, _attackDamageDefault)
 {
 	std::cout << "[FragTrap] Constructor called" << std::endl;
-	this->setName(name);
-	this->setHitPoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
 }
 
 FragTrap::~FragTrap()
@@ -24,19 +21,16 @@ FragTrap::~FragTrap()
 	std::cout << "[FragTrap] Destructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &obj)
+FragTrap::FragTrap(const FragTrap &obj) : ClapTrap(obj)
 {
 	std::cout << "[FragTrap] Copy constructor called" << std::endl;
-	*this = obj;
 }
 
 FragTrap &FragTrap::operator = (const FragTrap &obj)
 {
 	std::cout << "[FragTrap] Copy assignment operator called" << std::endl;
-	this->setName(obj.getName());
-	this->setHitPoints(obj.getHitPoints());
-	this->setEnergyPoints(obj.getEnergyPoints());
-	this->setAttackDamage(obj.getAttackDamage());
+	if (this != &obj)
+		ClapTrap::operator = (obj);
 	return (*this);
 }
 

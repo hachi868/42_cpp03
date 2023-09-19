@@ -13,7 +13,7 @@ void testLoop(FragTrap &ft)
 	std::string target = "target";
 
 	std::cout << "inited value: ";
-	ft.showInfo();
+	std::cout << ft;
 	std::cout << std::endl;
 	while (i < 10)
 	{
@@ -25,7 +25,7 @@ void testLoop(FragTrap &ft)
 			ft.highFivesGuys();
 		else
 			ft.attack(target);
-		ft.showInfo();
+		std::cout << ft;
 		i++;
 	}
 	std::cout << "-----" << std::endl;
@@ -33,30 +33,36 @@ void testLoop(FragTrap &ft)
 
 int main(void)
 {
-	std::cout << "[test0] Default constructor" << std::endl;
-	FragTrap ft0;
-	testLoop(ft0);
+	{
+		std::cout << "[test0] Default constructor" << std::endl;
+		FragTrap ft0;
+		testLoop(ft0);
 
-	std::cout << "[test1] name constructor" << std::endl;
-	FragTrap ft1("name_ft1");
-	testLoop(ft1);
+		std::cout << "[test1] name constructor" << std::endl;
+		FragTrap ft1("name_ft1");
+		testLoop(ft1);
 
-	std::cout << "[test2] Copy constructor" << std::endl;
-	FragTrap ft2(ft1);
-	testLoop(ft2);
+		std::cout << "[test2] Copy constructor" << std::endl;
+		FragTrap ft2(ft1);
+		testLoop(ft2);
 
-	std::cout << "[test3] Copy constructor" << std::endl;
-	FragTrap &ft3a = ft0;
-	FragTrap ft3 = ft3a;
-	testLoop(ft3);
-
-	std::cout << "[test4] Copy assignment & name constructor" << std::endl;
-	FragTrap ft4 = FragTrap("name_ft4");
-	testLoop(ft4);
-
-	std::cout << "[test5] new" << std::endl;
-	FragTrap *ft5 = new FragTrap("name_ft5");
-	testLoop(*ft5);
-	delete ft5;
+		std::cout << "[test3] Copy constructor" << std::endl;
+		FragTrap &ft3a = ft0;
+		FragTrap ft3 = ft3a;
+		testLoop(ft3);
+	}
+	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+	{
+		std::cout << "[test4] Copy assignment & name constructor" << std::endl;
+		FragTrap ft4 = FragTrap("name_ft4");
+		testLoop(ft4);
+	}
+	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
+	{
+		std::cout << "[test5] new" << std::endl;
+		FragTrap *ft5 = new FragTrap("name_ft5");
+		testLoop(*ft5);
+		delete ft5;
+	}
 	return (0);
 }
