@@ -22,14 +22,18 @@ DiamondTrap::~DiamondTrap()
 DiamondTrap::DiamondTrap(const DiamondTrap &obj) : ClapTrap(obj)
 {
 	std::cout << "[DiamondTrap] Copy constructor called" << std::endl;
-	*this = obj;
+	this->_name = obj._name;
 }
 
 DiamondTrap &DiamondTrap::operator = (const DiamondTrap &obj)
 {
 	std::cout << "[DiamondTrap] Copy assignment operator called" << std::endl;
 	if (this != &obj)
-		ClapTrap::operator=(obj);
+	{
+		FragTrap::operator=(obj);
+		ScavTrap::operator=(obj);
+		this->_name = obj._name;
+	}
 	return (*this);
 }
 
