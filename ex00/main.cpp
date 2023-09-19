@@ -10,8 +10,8 @@ void testLoop(ClapTrap &ct) {
 	int i = 0;
 	std::string target = "target";
 
-	std::cout << "inited value: ";
-	ct.showInfo();
+	std::cout << "initiel value: ";
+	std::cout << ct;
 	std::cout << std::endl;
 	while (i < 10)
 	{
@@ -21,7 +21,7 @@ void testLoop(ClapTrap &ct) {
 			ct.beRepaired(5);
 		else
 			ct.attack(target);
-		ct.showInfo();
+		std::cout << ct;
 		i++;
 	}
 	std::cout << "-----" << std::endl;

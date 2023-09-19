@@ -17,11 +17,10 @@ public:
 	unsigned int getHitPoints(void) const;
 	unsigned int getEnergyPoints(void) const;
 	unsigned int getAttackDamage(void) const;
-	void setName(std::string name);
-	void setHitPoints(unsigned int amount);
-	void setEnergyPoints(unsigned int amount);
-	void setAttackDamage(unsigned int amount);
-	void showInfo(void);
+	// void setName(std::string name);
+	// void setHitPoints(unsigned int amount);
+	// void setEnergyPoints(unsigned int amount);
+	// void setAttackDamage(unsigned int amount);
 
 private:
 	std::string		_name;
@@ -29,5 +28,7 @@ private:
 	unsigned int	_energyPoints;
 	unsigned int	_attackDamage;
 };
+
+std::ostream &operator << (std::ostream &os, const ClapTrap &ct);
 
 #endif //__CLAPTRAP_H__
