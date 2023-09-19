@@ -21,7 +21,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "[ScavTrap] Destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj), _modeGuardGate(false)
+ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj), _modeGuardGate(obj._modeGuardGate)
 {
 	std::cout << "[ScavTrap] Copy constructor called" << std::endl;
 }
@@ -30,7 +30,10 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
 {
 	std::cout << "[ScavTrap] Copy assignment operator called" << std::endl;
 	if (this != &obj)
+	{
 		ClapTrap::operator = (obj);
+		this->_modeGuardGate = obj._modeGuardGate;
+	}
 	return (*this);
 }
 
