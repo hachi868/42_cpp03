@@ -35,12 +35,7 @@ DiamondTrap &DiamondTrap::operator = (const DiamondTrap &obj)
 		this->_name = obj._name;
 	}
 	return (*this);
-}
-
-void DiamondTrap::attack(const std::string &target)
-{
-	ScavTrap::attack(target);
-}
+} 
 
 void DiamondTrap::whoAmI()
 {
