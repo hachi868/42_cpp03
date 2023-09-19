@@ -1,14 +1,18 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name("unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+const unsigned int ClapTrap::_hitPointsDefault = 10;
+const unsigned int ClapTrap::_energyPointsDefault = 10;
+const unsigned int ClapTrap::_attackDamageDefault = 0;
+
+ClapTrap::ClapTrap(void) : _name("unknown"), _hitPoints(_hitPointsDefault), _energyPoints(_energyPointsDefault), _attackDamage(_attackDamageDefault)
 {
 	std::cout << "[ClapTrap] Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string	name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(_hitPointsDefault), _energyPoints(_energyPointsDefault), _attackDamage(_attackDamageDefault)
 {
-	std::cout << "[ClapTrap] Constructor called" << std::endl;
+	std::cout << "[ClapTrap] Constructor called(name)" << std::endl;
 }
 
 ClapTrap::~ClapTrap()

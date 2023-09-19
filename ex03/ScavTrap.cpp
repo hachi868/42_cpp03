@@ -11,9 +11,9 @@ ScavTrap::ScavTrap() : ClapTrap("unknown", _hitPointsDefault, _energyPointsDefau
 	std::cout << "[ScavTrap] Default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, _hitPointsDefault, _energyPointsDefault, _attackDamageDefault), _modeGuardGate(false)
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name, _hitPointsDefault, _energyPointsDefault, _attackDamageDefault), _modeGuardGate(false)
 {
-	std::cout << "[ScavTrap] Constructor called" << std::endl;
+	std::cout << "[ScavTrap] Constructor called(name)" << std::endl;
 }
 
 ScavTrap::~ScavTrap()

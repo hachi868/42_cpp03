@@ -9,9 +9,9 @@ DiamondTrap::DiamondTrap() : ClapTrap("unknown_clap_name", FragTrap::_hitPointsD
 	std::cout << "[DiamondTrap] Default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name", FragTrap::_hitPointsDefault, ScavTrap::_energyPointsDefault, FragTrap::_attackDamageDefault), _name(name)
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name", FragTrap::_hitPointsDefault, ScavTrap::_energyPointsDefault, FragTrap::_attackDamageDefault), _name(name)
 {
-	std::cout << "[DiamondTrap] Constructor called" << std::endl;
+	std::cout << "[DiamondTrap] Constructor called(name)" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()

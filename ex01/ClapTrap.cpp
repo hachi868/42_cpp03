@@ -10,15 +10,15 @@ ClapTrap::ClapTrap(void) : _name("unknown"), _hitPoints(_hitPointsDefault), _ene
 	std::cout << "[ClapTrap] Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(_hitPointsDefault), _energyPoints(_energyPointsDefault), _attackDamage(_attackDamageDefault)
+ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(_hitPointsDefault), _energyPoints(_energyPointsDefault), _attackDamage(_attackDamageDefault)
 {
-	std::cout << "[ClapTrap] Constructor called" << std::endl;
+	std::cout << "[ClapTrap] Constructor called(name)" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name, unsigned int _hitPoints, unsigned int _energyPoints, unsigned int _attackDamage)
+ClapTrap::ClapTrap(const std::string &name, unsigned int _hitPoints, unsigned int _energyPoints, unsigned int _attackDamage)
 	: _name(name), _hitPoints(_hitPoints), _energyPoints(_energyPoints), _attackDamage(_attackDamage)
 {
-	std::cout << "[ClapTrap] Constructor called" << std::endl;
+	std::cout << "[ClapTrap] Constructor called(inherit)" << std::endl;
 }
 
 ClapTrap::~ClapTrap()

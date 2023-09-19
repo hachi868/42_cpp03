@@ -29,13 +29,15 @@ void testLoop(ClapTrap &ct) {
 
 int main( void )
 {
+	std::string name = "nameDf";
+	std::string &nameRef = name;
 	{
 		std::cout << "[test0] Default constructor" << std::endl;
 		ClapTrap ct0;
 		testLoop(ct0);
 
 		std::cout << "[test1] name constructor" << std::endl;
-		ClapTrap ct1("name_ct1");
+		ClapTrap ct1(nameRef);
 		testLoop(ct1);
 
 		std::cout << "[test2] Copy constructor" << std::endl;
@@ -49,8 +51,9 @@ int main( void )
 	}
 	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;
 	{
+		name = "name_ct4";
 		std::cout << "[test4] Copy assignment & name constructor" << std::endl;
-		ClapTrap ct4 = ClapTrap("name_ct4");
+		ClapTrap ct4 = ClapTrap(name);
 		testLoop(ct4);
 	}
 	std::cout << "*-*-*-*-*-*-*" << std::endl << std::endl;

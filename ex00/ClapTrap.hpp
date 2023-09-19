@@ -6,7 +6,7 @@
 class ClapTrap {
 public:
 	ClapTrap(void);
-	ClapTrap(std::string name);
+	ClapTrap(const std::string &name);
 	ClapTrap(const ClapTrap &obj);
 	ClapTrap &operator = (const ClapTrap &obj);
 	~ClapTrap();
@@ -19,10 +19,13 @@ public:
 	unsigned int getAttackDamage(void) const;
 
 private:
-	std::string		_name;
+	std::string	_name;
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
 	unsigned int	_attackDamage;
+	static const unsigned int	_hitPointsDefault;
+	static const unsigned int	_energyPointsDefault;
+	static const unsigned int	_attackDamageDefault;
 };
 
 std::ostream &operator << (std::ostream &os, const ClapTrap &ct);

@@ -11,9 +11,9 @@ FragTrap::FragTrap() : ClapTrap("unknown", _hitPointsDefault, _energyPointsDefau
 	std::cout << "[FragTrap] Default constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, _hitPointsDefault, _energyPointsDefault, _attackDamageDefault)
+FragTrap::FragTrap(const std::string &name) : ClapTrap(name, _hitPointsDefault, _energyPointsDefault, _attackDamageDefault)
 {
-	std::cout << "[FragTrap] Constructor called" << std::endl;
+	std::cout << "[FragTrap] Constructor called(name)" << std::endl;
 }
 
 FragTrap::~FragTrap()
